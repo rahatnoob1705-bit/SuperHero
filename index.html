@@ -30,18 +30,20 @@
             padding: 15px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             border-bottom: 1px solid #30363d;
             z-index: 1000;
             backdrop-filter: blur(5px);
+            flex-wrap: wrap;
         }
 
         nav a {
             color: var(--text);
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
+            padding: 5px 10px;
             transition: 0.3s;
         }
 
@@ -51,7 +53,6 @@
             text-align: center;
             padding: 60px 20px;
             background: radial-gradient(circle, #1c2128 0%, #0d1117 100%);
-            border-bottom: 1px solid #30363d;
         }
 
         .section-title {
@@ -62,10 +63,10 @@
             letter-spacing: 3px;
         }
 
-        #heroes .section-title { color: var(--hero-color); text-shadow: 0 0 10px rgba(0,210,255,0.3); }
-        #villains .section-title { color: var(--villain-color); text-shadow: 0 0 10px rgba(255,0,85,0.3); }
+        #heroes .section-title { color: var(--hero-color); }
+        #villains .section-title { color: var(--villain-color); }
         #minions .section-title { color: var(--minion-color); }
-        #neutral .section-title { color: var(--neutral-color); text-shadow: 0 0 10px rgba(255,170,0,0.3); }
+        #neutral .section-title { color: var(--neutral-color); }
 
         .container {
             max-width: 1200px;
@@ -82,16 +83,12 @@
             padding: 20px;
             border: 1px solid #30363d;
             transition: 0.3s;
-            display: flex;
-            flex-direction: column;
         }
 
         .card:hover { transform: translateY(-5px); }
-        
-        .card.hero:hover { border-color: var(--hero-color); box-shadow: 0 5px 15px rgba(0, 210, 255, 0.1); }
-        .card.villain:hover { border-color: var(--villain-color); box-shadow: 0 5px 15px rgba(255, 0, 85, 0.1); }
-        .card.minion:hover { border-color: var(--minion-color); }
-        .card.neutral:hover { border-color: var(--neutral-color); box-shadow: 0 5px 15px rgba(255, 170, 0, 0.1); }
+        .card.hero:hover { border-color: var(--hero-color); }
+        .card.villain:hover { border-color: var(--villain-color); }
+        .card.neutral:hover { border-color: var(--neutral-color); }
 
         .type-badge {
             font-size: 0.65rem;
@@ -99,7 +96,7 @@
             border-radius: 4px;
             text-transform: uppercase;
             font-weight: bold;
-            align-self: flex-start;
+            display: inline-block;
             margin-bottom: 10px;
         }
 
@@ -110,103 +107,94 @@
 
         h3 { margin: 5px 0; color: #fff; }
         .label { color: var(--minion-color); font-size: 0.8rem; font-weight: bold; margin-top: 10px; text-transform: uppercase; }
-        .desc { font-size: 0.9rem; margin: 5px 0; line-height: 1.4; }
+        .desc { font-size: 0.9rem; margin: 5px 0; }
         .weak { color: #ff7b72; font-size: 0.85rem; font-style: italic; }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="#heroes">Герои (12)</a>
-    <a href="#villains">Злодеи (12)</a>
-    <a href="#minions">Слуги (4)</a>
-    <a href="#neutral">Нейтралы (5)</a>
+    <a href="#heroes">Герои</a>
+    <a href="#villains">Злодеи</a>
+    <a href="#minions">Слуги</a>
+    <a href="#neutral">Нейтралы</a>
 </nav>
 
 <header>
     <h1>SUPER DATA-CORE</h1>
-    <p>Реестр персонажей вашей вселенной</p>
+    <p>Реестр 33 персонажей вашей вселенной</p>
 </header>
 
 <section id="heroes">
     <h2 class="section-title">Герои</h2>
     <div class="container">
-        <script>
-            for(let i=1; i<=12; i++) {
-                document.write(`
-                <div class="card hero">
-                    <span class="type-badge">Герой</span>
-                    <h3>Герой #${i}</h3>
-                    <div class="label">Особенности:</div>
-                    <p class="desc">Опишите силы героя здесь...</p>
-                    <div class="label">Слабости:</div>
-                    <p class="weak">Напишите минусы здесь...</p>
-                </div>`);
-            }
-        </script>
+        <div class="card hero">
+            <span class="type-badge">Герой</span>
+            <h3>Имя Героя 1</h3>
+            <div class="label">Особенности:</div>
+            <p class="desc">Описание способностей...</p>
+            <div class="label">Слабости:</div>
+            <p class="weak">Минусы...</p>
+        </div>
+        <div class="card hero"><h3>Имя Героя 2</h3><p class="desc">Сила...</p></div>
+        <div class="card hero"><h3>Имя Героя 3</h3><p class="desc">Сила...</p></div>
+        <div class="card hero"><h3>Имя Героя 4</h3><p class="desc">Сила...</p></div>
+        <div class="card hero"><h3>Имя Героя 5</h3><p class="desc">Сила...</p></div>
+        <div class="card hero"><h3>Имя Героя 6</h3><p class="desc">Сила...</p></div>
+        <div class="card hero"><h3>Имя Героя 7</h3><p class="desc">Сила...</p></div>
+        <div class="card hero"><h3>Имя Героя 8</h3><p class="desc">Сила...</p></div>
+        <div class="card hero"><h3>Имя Героя 9</h3><p class="desc">Сила...</p></div>
+        <div class="card hero"><h3>Имя Героя 10</h3><p class="desc">Сила...</p></div>
+        <div class="card hero"><h3>Имя Героя 11</h3><p class="desc">Сила...</p></div>
+        <div class="card hero"><h3>Имя Героя 12</h3><p class="desc">Сила...</p></div>
     </div>
 </section>
 
 <section id="villains">
     <h2 class="section-title">Злодеи</h2>
     <div class="container">
-        <script>
-            for(let i=1; i<=12; i++) {
-                document.write(`
-                <div class="card villain">
-                    <span class="type-badge">Злодей</span>
-                    <h3>Злодей #${i}</h3>
-                    <div class="label">Особенности:</div>
-                    <p class="desc">Опишите силы злодея здесь...</p>
-                    <div class="label">Слабости:</div>
-                    <p class="weak">Напишите минусы здесь...</p>
-                </div>`);
-            }
-        </script>
+        <div class="card villain">
+            <span class="type-badge">Злодей</span>
+            <h3>Имя Злодея 1</h3>
+            <div class="label">Особенности:</div>
+            <p class="desc">Злобные силы...</p>
+            <div class="label">Слабости:</div>
+            <p class="weak">Как победить...</p>
+        </div>
+        <div class="card villain"><h3>Злодей 2</h3><p class="desc">Сила...</p></div>
+        <div class="card villain"><h3>Злодей 3</h3><p class="desc">Сила...</p></div>
+        <div class="card villain"><h3>Злодей 4</h3><p class="desc">Сила...</p></div>
+        <div class="card villain"><h3>Злодей 5</h3><p class="desc">Сила...</p></div>
+        <div class="card villain"><h3>Злодей 6</h3><p class="desc">Сила...</p></div>
+        <div class="card villain"><h3>Злодей 7</h3><p class="desc">Сила...</p></div>
+        <div class="card villain"><h3>Злодей 8</h3><p class="desc">Сила...</p></div>
+        <div class="card villain"><h3>Злодей 9</h3><p class="desc">Сила...</p></div>
+        <div class="card villain"><h3>Злодей 10</h3><p class="desc">Сила...</p></div>
+        <div class="card villain"><h3>Злодей 11</h3><p class="desc">Сила...</p></div>
+        <div class="card villain"><h3>Злодей 12</h3><p class="desc">Сила...</p></div>
     </div>
 </section>
 
 <section id="minions">
     <h2 class="section-title">Подчинённые</h2>
     <div class="container">
-        <script>
-            for(let i=1; i<=4; i++) {
-                document.write(`
-                <div class="card minion">
-                    <span class="type-badge">Слуга</span>
-                    <h3>Миньон #${i}</h3>
-                    <div class="label">Особенности:</div>
-                    <p class="desc">Описание способностей...</p>
-                    <div class="label">Минусы:</div>
-                    <p class="weak">Слабые места...</p>
-                </div>`);
-            }
-        </script>
+        <div class="card minion"><h3>Миньон 1</h3><p class="desc">Описание...</p></div>
+        <div class="card minion"><h3>Миньон 2</h3><p class="desc">Описание...</p></div>
+        <div class="card minion"><h3>Миньон 3</h3><p class="desc">Описание...</p></div>
+        <div class="card minion"><h3>Миньон 4</h3><p class="desc">Описание...</p></div>
     </div>
 </section>
 
 <section id="neutral">
     <h2 class="section-title">Нейтральные</h2>
     <div class="container">
-        <script>
-            for(let i=1; i<=5; i++) {
-                document.write(`
-                <div class="card neutral">
-                    <span class="type-badge">Нейтрал</span>
-                    <h3>Персонаж #${i}</h3>
-                    <div class="label">Особенности:</div>
-                    <p class="desc">Почему он не на чьей-то стороне?</p>
-                    <div class="label">Минусы:</div>
-                    <p class="weak">Уязвимости...</p>
-                </div>`);
-            }
-        </script>
+        <div class="card neutral"><h3>Нейтрал 1</h3><p class="desc">Описание...</p></div>
+        <div class="card neutral"><h3>Нейтрал 2</h3><p class="desc">Описание...</p></div>
+        <div class="card neutral"><h3>Нейтрал 3</h3><p class="desc">Описание...</p></div>
+        <div class="card neutral"><h3>Нейтрал 4</h3><p class="desc">Описание...</p></div>
+        <div class="card neutral"><h3>Нейтрал 5</h3><p class="desc">Описание...</p></div>
     </div>
 </section>
-
-<footer style="text-align: center; padding: 60px; color: var(--minion-color); border-top: 1px solid #30363d;">
-    <p>Проект "Супергерои" &copy; 2026</p>
-</footer>
 
 </body>
 </html>
