@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hero Database</title>
+    <title>База Сверхлюдей</title>
     <style>
         :root {
             --bg: #0d1117;
@@ -23,7 +23,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Навигация */
         nav {
             position: sticky;
             top: 0;
@@ -41,7 +40,7 @@
             color: var(--text);
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             transition: 0.3s;
         }
@@ -52,28 +51,28 @@
             text-align: center;
             padding: 60px 20px;
             background: radial-gradient(circle, #1c2128 0%, #0d1117 100%);
+            border-bottom: 1px solid #30363d;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin: 50px 0 30px;
             text-transform: uppercase;
             letter-spacing: 3px;
         }
 
-        /* Цвета заголовков разделов */
-        #heroes .section-title { color: var(--hero-color); }
-        #villains .section-title { color: var(--villain-color); }
+        #heroes .section-title { color: var(--hero-color); text-shadow: 0 0 10px rgba(0,210,255,0.3); }
+        #villains .section-title { color: var(--villain-color); text-shadow: 0 0 10px rgba(255,0,85,0.3); }
         #minions .section-title { color: var(--minion-color); }
-        #neutral .section-title { color: var(--neutral-color); }
+        #neutral .section-title { color: var(--neutral-color); text-shadow: 0 0 10px rgba(255,170,0,0.3); }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             padding: 20px;
         }
 
@@ -83,22 +82,25 @@
             padding: 20px;
             border: 1px solid #30363d;
             transition: 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Индивидуальные стили карточек */
-        .card.hero:hover { border-color: var(--hero-color); box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); }
-        .card.villain:hover { border-color: var(--villain-color); box-shadow: 0 0 20px rgba(255, 0, 85, 0.2); }
+        .card:hover { transform: translateY(-5px); }
+        
+        .card.hero:hover { border-color: var(--hero-color); box-shadow: 0 5px 15px rgba(0, 210, 255, 0.1); }
+        .card.villain:hover { border-color: var(--villain-color); box-shadow: 0 5px 15px rgba(255, 0, 85, 0.1); }
         .card.minion:hover { border-color: var(--minion-color); }
-        .card.neutral:hover { border-color: var(--neutral-color); box-shadow: 0 0 20px rgba(255, 170, 0, 0.2); }
+        .card.neutral:hover { border-color: var(--neutral-color); box-shadow: 0 5px 15px rgba(255, 170, 0, 0.1); }
 
         .type-badge {
-            font-size: 0.7rem;
-            padding: 3px 8px;
+            font-size: 0.65rem;
+            padding: 2px 8px;
             border-radius: 4px;
             text-transform: uppercase;
             font-weight: bold;
+            align-self: flex-start;
             margin-bottom: 10px;
-            display: inline-block;
         }
 
         .hero .type-badge { background: var(--hero-color); color: #000; }
@@ -106,75 +108,104 @@
         .minion .type-badge { background: var(--minion-color); color: #000; }
         .neutral .type-badge { background: var(--neutral-color); color: #000; }
 
-        h3 { margin: 10px 0; font-size: 1.5rem; }
-        .desc { color: #8b949e; font-size: 0.95rem; }
-        .weakness { color: #ff7b72; font-size: 0.9rem; margin-top: 10px; font-style: italic; }
+        h3 { margin: 5px 0; color: #fff; }
+        .label { color: var(--minion-color); font-size: 0.8rem; font-weight: bold; margin-top: 10px; text-transform: uppercase; }
+        .desc { font-size: 0.9rem; margin: 5px 0; line-height: 1.4; }
+        .weak { color: #ff7b72; font-size: 0.85rem; font-style: italic; }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="#heroes">Герои</a>
-    <a href="#villains">Злодеи</a>
-    <a href="#minions">Подчинённые</a>
-    <a href="#neutral">Нейтралы</a>
+    <a href="#heroes">Герои (12)</a>
+    <a href="#villains">Злодеи (12)</a>
+    <a href="#minions">Слуги (4)</a>
+    <a href="#neutral">Нейтралы (5)</a>
 </nav>
 
 <header>
-    <h1>Encyclopedia Superia</h1>
-    <p>Полный реестр сверхлюдей и существ</p>
+    <h1>SUPER DATA-CORE</h1>
+    <p>Реестр персонажей вашей вселенной</p>
 </header>
 
 <section id="heroes">
     <h2 class="section-title">Герои</h2>
     <div class="container">
-        <div class="card hero">
-            <span class="type-badge">Герой</span>
-            <h3>Имя Героя</h3>
-            <p class="desc">Особенности: Здесь пиши силы.</p>
-            <p class="weakness">Минусы: Слабости здесь.</p>
-        </div>
+        <script>
+            for(let i=1; i<=12; i++) {
+                document.write(`
+                <div class="card hero">
+                    <span class="type-badge">Герой</span>
+                    <h3>Герой #${i}</h3>
+                    <div class="label">Особенности:</div>
+                    <p class="desc">Опишите силы героя здесь...</p>
+                    <div class="label">Слабости:</div>
+                    <p class="weak">Напишите минусы здесь...</p>
+                </div>`);
+            }
+        </script>
     </div>
 </section>
 
 <section id="villains">
     <h2 class="section-title">Злодеи</h2>
     <div class="container">
-        <div class="card villain">
-            <span class="type-badge">Злодей</span>
-            <h3>Имя Злодея</h3>
-            <p class="desc">Особенности: Его зловещие силы.</p>
-            <p class="weakness">Минусы: Как его победить?</p>
-        </div>
+        <script>
+            for(let i=1; i<=12; i++) {
+                document.write(`
+                <div class="card villain">
+                    <span class="type-badge">Злодей</span>
+                    <h3>Злодей #${i}</h3>
+                    <div class="label">Особенности:</div>
+                    <p class="desc">Опишите силы злодея здесь...</p>
+                    <div class="label">Слабости:</div>
+                    <p class="weak">Напишите минусы здесь...</p>
+                </div>`);
+            }
+        </script>
     </div>
 </section>
 
 <section id="minions">
     <h2 class="section-title">Подчинённые</h2>
     <div class="container">
-        <div class="card minion">
-            <span class="type-badge">Слуга</span>
-            <h3>Боевой Дроид</h3>
-            <p class="desc">Особенности: Массовое производство, исполнение приказов.</p>
-            <p class="weakness">Минусы: Нет своей воли.</p>
-        </div>
+        <script>
+            for(let i=1; i<=4; i++) {
+                document.write(`
+                <div class="card minion">
+                    <span class="type-badge">Слуга</span>
+                    <h3>Миньон #${i}</h3>
+                    <div class="label">Особенности:</div>
+                    <p class="desc">Описание способностей...</p>
+                    <div class="label">Минусы:</div>
+                    <p class="weak">Слабые места...</p>
+                </div>`);
+            }
+        </script>
     </div>
 </section>
 
 <section id="neutral">
     <h2 class="section-title">Нейтральные</h2>
     <div class="container">
-        <div class="card neutral">
-            <span class="type-badge">Нейтрал</span>
-            <h3>Наёмник</h3>
-            <p class="desc">Особенности: Работает на того, кто больше платит.</p>
-            <p class="weakness">Минусы: Только личная выгода.</p>
-        </div>
+        <script>
+            for(let i=1; i<=5; i++) {
+                document.write(`
+                <div class="card neutral">
+                    <span class="type-badge">Нейтрал</span>
+                    <h3>Персонаж #${i}</h3>
+                    <div class="label">Особенности:</div>
+                    <p class="desc">Почему он не на чьей-то стороне?</p>
+                    <div class="label">Минусы:</div>
+                    <p class="weak">Уязвимости...</p>
+                </div>`);
+            }
+        </script>
     </div>
 </section>
 
-<footer style="text-align: center; padding: 50px; opacity: 0.5;">
-    <p>&copy; 2026 Твоя Вселенная Супергероев</p>
+<footer style="text-align: center; padding: 60px; color: var(--minion-color); border-top: 1px solid #30363d;">
+    <p>Проект "Супергерои" &copy; 2026</p>
 </footer>
 
 </body>
